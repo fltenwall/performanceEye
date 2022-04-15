@@ -27,25 +27,25 @@ function getPerformanceTiming () {
     times.ttfb = t.responseStart - t.navigationStart;
 
     // 请求响应耗时 网络请求耗时 
-    times.response = responseStart -requestStart
+    times.response = t.responseStart -t.requestStart
 
     // DOM解析耗时 DOM 解析耗时 
-    times.DOMresolve = domInteractive - responseEnd
+    times.DOMresolve = t.domInteractive - t.responseEnd
 
     // 内容传输耗时 TCP 连接耗时 
-    times.tcpConnect = responseEnd - responseStart
+    times.tcpConnect = t.responseEnd - t.responseStart
 
     // 资源加载耗时 资源加载耗时 
-    times.resource = loadEventStart-domContentLoadedEventEnd
+    times.resource = t.loadEventStart - t.domContentLoadedEventEnd
 
     // DOM_READY耗时 DOM阶段渲染耗时 
-    times.domRender = domContentLoadedEventEnd - fetchStart
+    times.domRender = t.domContentLoadedEventEnd - t.fetchStart
 
     // 首次渲染耗时 首次渲染时间/白屏时间 
-    times.ft = responseEnd - fetchStart 
+    times.ft = t.responseEnd - t.fetchStart 
 
     // 首次可交互耗时 首次可交互时间 (First interactivity)
-    times.fi = domlnteractive - fetchStart 
+    times.fi = t.domInteractive - t.fetchStart 
 
     // 首包时间耗时 首包时间 
     times.firstPackage = t.responseStart - t.domainLookupStart 
